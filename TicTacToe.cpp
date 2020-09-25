@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 class Board {
 public:
@@ -17,6 +18,7 @@ public:
 	// std::vector<Position> GetMoves(Player *p); // get the possible Positions that a Player could move to
 
 	void DisplayBoard();
+	std::vector<int> GetPlayerChoice();
 	void TakeTurn();
 	bool GameOver(); // not sure how im going to prioitize player over "EXIT" when checking this, probably just overwrite the value when the player gets there
 
@@ -63,6 +65,37 @@ void Board::place_Marker(int r, int c, std::string value) {
 		}
 	}
 	return;
+
+ std::vector<int> Board::GetPlayerChoice(){
+	bool choice_made = false;
+	string row_choice = "";
+	string col_choice = "";
+
+	while (!choice_made){
+		std::cout << "Choose which row on the board you would like to place your marker" << std::endl;
+		std::getline(std::cin, row_choice);
+		std::cout << "Choose which column on the board you would like to place your marker" << std::endl;
+		std::getline(std::cin, col_choice);
+
+		if(row_choice == "0" || row_choice == "1" || row_choice == "2"){
+			if(col_choice == "0" || col_choice == "1" || col_choice == "2"){
+				std::vector<int> coordinates;
+				coordinates.push_back(stoi(row_choice));
+				coordinates.push_back(stoi(col_choice));
+				choice_made = true;
+			}
+			else{
+				std::cout << "Invalid choice, please try again." << std::endl << std::endl;
+			}
+		}
+
+		else{
+			std::cout << "Invalid choice, please try again." << std::endl << std::endl;
+		}
+
+	}
+
+	return coordinates;
 }
 
 #endif
