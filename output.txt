@@ -1,0 +1,86 @@
+NEW GAME
+  0   1   2
+0   |   |  
+  _   _   _
+1   |   |  
+  _   _   _
+2   |   |  
+Player One's Turn
+Choose which row on the board you would like to place your marker
+0
+Choose which column on the board you would like to place your marker
+0
+  0   1   2
+0 X |   |  
+  _   _   _
+1   |   |  
+  _   _   _
+2   |   |  
+Player Two's Turn
+Choose which row on the board you would like to place your marker
+0
+Choose which column on the board you would like to place your marker
+1
+  0   1   2
+0 X | O |  
+  _   _   _
+1   |   |  
+  _   _   _
+2   |   |  
+Player One's Turn
+Choose which row on the board you would like to place your marker
+1
+Choose which column on the board you would like to place your marker
+0
+  0   1   2
+0 X | O |  
+  _   _   _
+1 X |   |  
+  _   _   _
+2   |   |  
+Player Two's Turn
+Choose which row on the board you would like to place your marker
+2
+Choose which column on the board you would like to place your marker
+0
+  0   1   2
+0 X | O |  
+  _   _   _
+1 X |   |  
+  _   _   _
+2 O |   |  
+Player One's Turn
+Choose which row on the board you would like to place your marker
+1
+Choose which column on the board you would like to place your marker
+2
+  0   1   2
+0 X | O |  
+  _   _   _
+1 X |   | X
+  _   _   _
+2 O |   |  
+Player Two's Turn
+Choose which row on the board you would like to place your marker
+0
+Choose which column on the board you would like to place your marker
+2
+  0   1   2
+0 X | O | O
+  _   _   _
+1 X |   | X
+  _   _   _
+2 O |   |  
+Player One's Turn
+Choose which row on the board you would like to place your marker
+1
+Choose which column on the board you would like to place your marker
+1
+  0   1   2
+0 X | O | O
+  _   _   _
+1 X | X | X
+  _   _   _
+2 O |   |  
+
+GAME OVER!
