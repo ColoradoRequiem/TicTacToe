@@ -39,3 +39,14 @@ void Board::PrintBoard() {
     }
   }
 }
+
+void Board::DisplayBoard(){
+	std::cout << "_  _  _" << std::endl;
+	for(int i = 0; i < get_rows(); i++) {
+		for(int j = 0; j < get_cols(); i++){
+			std::cout << arr_[i][j] << " | ";
+		}
+		std::cout << std::endl;
+		std::cout << "_  _  _" << std::endl;
+	}
+}
