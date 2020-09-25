@@ -18,9 +18,9 @@ public:
 	// std::vector<Position> GetMoves(Player *p); // get the possible Positions that a Player could move to
 
 	void DisplayBoard();
-	std::vector<int> GetPlayerChoice();
+	std::vector<int> GetPlayerChoice(std::string mark);
 	void TakeTurn();
-	bool GameOver(); // not sure how im going to prioitize player over "EXIT" when checking this, probably just overwrite the value when the player gets there
+	bool GameOver();
 
 private:
 	std::string arr_[3][3]; // row, col
@@ -35,10 +35,10 @@ Board::Board() {
 }
 
 void Board::DisplayBoard() {
-	std::cout << "  1   2   3" << std::endl;
+	std::cout << "  0   1   2" << std::endl;
 
   for(int i = 0; i < 3; i++) {
-		std::cout << (i + 1) << " ";
+		std::cout << i << " ";
     for(int j = 0; j < 3; j++) {
       std::cout << arr_[i][j];
       if (j < 2) {
@@ -61,16 +61,17 @@ void Board::place_Marker(int r, int c, std::string value) {
 			std::cout << "ERROR: SPOT ALREADY PLAYED" << std::endl;
 		}
 		else {
-			this->arr_[r-1][c-1] = value;
+			this->arr_[r][c] = value;
 		}
 	}
 	return;
 }
 
- std::vector<int> Board::GetPlayerChoice(){
+ std::vector<int> Board::GetPlayerChoice(std::string mark){
 	bool choice_made = false;
-	string row_choice = "";
-	string col_choice = "";
+	std::vector<int> coordinates;
+	std::string row_choice = "";
+	std::string col_choice = "";
 
 	while (!choice_made){
 		std::cout << "Choose which row on the board you would like to place your marker" << std::endl;
@@ -80,9 +81,9 @@ void Board::place_Marker(int r, int c, std::string value) {
 
 		if(row_choice == "0" || row_choice == "1" || row_choice == "2"){
 			if(col_choice == "0" || col_choice == "1" || col_choice == "2"){
-				std::vector<int> coordinates;
-				coordinates.push_back(stoi(row_choice));
-				coordinates.push_back(stoi(col_choice));
+				coordinates.push_back(std::stoi(row_choice));
+				coordinates.push_back(std::stoi(col_choice));
+				place_Marker(std::stoi(row_choice), std::stoi(col_choice), mark);
 				choice_made = true;
 			}
 			else{
@@ -97,6 +98,45 @@ void Board::place_Marker(int r, int c, std::string value) {
 	}
 
 	return coordinates;
+}
+
+bool Board::GameOver() { // r , c
+	bool three = false;
+
+	for (int i = 0; i < 3; i++) { // row check
+		int countr = 0;
+		for (int j = 0; j < 3; j++) {
+			if (j > 0) {
+				if ((arr_[i][j] == arr_[i][j-1]) && (arr_[i][j] != " ")) {
+					countr++;
+					if (countr == 2) {return true;}
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < 3; i++) { // column check
+		int countc = 0;
+		for (int j = 0; j < 3; j++) {
+			if (j > 0) {
+				if ((arr_[j][i] == arr_[j-1][i]) && (arr_[j][i] != " ")) {
+					countc++;
+					if (countc == 2) {return true;}
+				}
+			}
+		}
+	}
+
+	//diag check
+	if ((arr_[0][0] == arr_[1][1]) & (arr_[1][1] == arr_[2][2]) & (arr_[2][2] != " ")) {
+		return true;
+	}
+
+	if ((arr_[0][2] == arr_[1][1]) & (arr_[1][1] == arr_[2][0]) & (arr_[2][0] != " ")) {
+		return true;
+	}
+
+	return three;
 }
 
 #endif
