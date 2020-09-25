@@ -33,7 +33,10 @@ Board::Board() {
 }
 
 void Board::DisplayBoard() {
+	std::cout << "  1   2   3" << std::endl;
+
   for(int i = 0; i < 3; i++) {
+		std::cout << (i + 1) << " ";
     for(int j = 0; j < 3; j++) {
       std::cout << arr_[i][j];
       if (j < 2) {
@@ -42,7 +45,7 @@ void Board::DisplayBoard() {
     }
     std::cout << std::endl;
     if (i < 2) {
-      std::cout << "_   _   _" <<std::endl;
+      std::cout << "  _   _   _" <<std::endl;
     }
   }
 }
@@ -56,7 +59,7 @@ void Board::place_Marker(int r, int c, std::string value) {
 			std::cout << "ERROR: SPOT ALREADY PLAYED" << std::endl;
 		}
 		else {
-			this->arr_[r][c] = value;
+			this->arr_[r-1][c-1] = value;
 		}
 	}
 	return;
