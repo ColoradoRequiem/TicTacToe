@@ -65,6 +65,7 @@ void Board::place_Marker(int r, int c, std::string value) {
 		}
 	}
 	return;
+}
 
  std::vector<int> Board::GetPlayerChoice(){
 	bool choice_made = false;
