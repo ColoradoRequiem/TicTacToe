@@ -58,7 +58,7 @@ void Board::DisplayBoard() {
 		std::cout << "Choose which row on the board you would like to place your marker" << std::endl;
 		std::getline(std::cin, row_choice);
 		std::cout << "Choose which column on the board you would like to place your marker" << std::endl;
-		std::getline(std::cin, choice_choice);
+		std::getline(std::cin, col_choice);
 
 		if(row_choice == "0" || row_choice == "1" || row_choice == "2"){
 			if(col_choice == "0" || col_choice == "1" || col_choice == "2"){
